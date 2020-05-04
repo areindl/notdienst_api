@@ -1,4 +1,4 @@
-const crawler = require("../crawler");
+const crawler = require("./crawler.js");
 
 exports.handler = async (event) => {
   const lat = event.queryStringParameters.name || 45;
