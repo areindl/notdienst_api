@@ -20,6 +20,7 @@ const getResults = (url, params) => {
     // Fetch Data
     fetchData(url, params)
       .then((res) => {
+        console.log(res);
         if (res.status === 200) {
           console.log("Starting to Parse...");
           const html = res.data;
