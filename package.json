@@ -4,6 +4,8 @@
   "description": "an API to get the current BLAK assigned pharmacy for a given location",
   "main": "index.js",
   "scripts": {
+    "build": "netlify-lambda build express",
+    "start": "nodemon server-local.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
