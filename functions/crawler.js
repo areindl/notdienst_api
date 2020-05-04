@@ -60,6 +60,7 @@ async function fetchData(url, params) {
     url: url,
     params: params,
   }).catch((err) => {
+    console.log(err);
     console.error("Status Code: ", err.response.status);
     console.error("Status Text: ", err.response.statusText);
     return err;
