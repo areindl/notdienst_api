@@ -4,7 +4,7 @@ const path = require("path");
 const serverless = require("serverless-http");
 const app = express();
 const bodyParser = require("body-parser");
-const crawler = require("./crawler");
+const crawler = require("../crawler");
 
 /// Crawling Target
 const url =
