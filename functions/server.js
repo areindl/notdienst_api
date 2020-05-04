@@ -18,8 +18,15 @@ exports.handler = async (event) => {
 
   results = await crawler.getResults(url, params);
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(results),
-  };
+  if (results.length) {
+    return {
+      statusCode: 200,
+      body: JSON.stringify(results),
+    };
+  } else {
+    return {
+      statusCode: 500,
+      body: JSON.stringify("Error while fetching data."),
+    };
+  }
 };
