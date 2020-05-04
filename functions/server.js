@@ -16,20 +16,10 @@ exports.handler = async (event) => {
 
   let result = {};
 
-  result = crawler
-    .getResults(url, params)
-    .then((res) => {
-      return {
-        statusCode: 200,
-        body: res,
-      };
-    })
-    .catch((err) => {
-      console.error(err);
-      console.error("Crawling/Parsing failed");
-      return {
-        statusCode: 500,
-        body: "Could not load API",
-      };
-    });
+  results = await crawler.getResults(url, params);
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify(results),
+  };
 };
