@@ -1,0 +1,35 @@
+{
+  "name": "notdienst_api",
+  "version": "1.0.0",
+  "description": "an API to get the current BLAK assigned pharmacy for a given location",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/areindl/notdienst_api.git"
+  },
+  "keywords": [
+    "notdienst",
+    "api",
+    "BLAK"
+  ],
+  "author": "Anton Reindl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/areindl/notdienst_api/issues"
+  },
+  "homepage": "https://github.com/areindl/notdienst_api#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "serverless-http": "^2.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
