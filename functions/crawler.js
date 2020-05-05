@@ -10,17 +10,15 @@ const axios_config = {
 };
 const cheerio = require("cheerio");
 
-// THE RETURN OBJECT
-let results = [];
-
 //// DATA PARSING
 
 const getResults = (url, params) => {
+  // THE RETURN OBJECT
+  let results = [];
   let promise = new Promise(function (resolve, reject) {
     // Fetch Data
     fetchData(url, params)
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
           console.log("Starting to Parse...");
           const html = res.data;
@@ -30,7 +28,7 @@ const getResults = (url, params) => {
           resultEntry.each(function () {
             let result = {};
             result.name = $(this).find(".name").text();
-            result.zip = $(this).find(".zipCode").text();
+            result.zip = parseInt($(this).find(".zipCode").text());
             result.street = $(this).find(".street").text();
             result.city = $(this).find(".location").text();
             result.phone = $(this).find(".phone").text();
@@ -39,7 +37,7 @@ const getResults = (url, params) => {
           });
           resolve(results);
         } else {
-          reject("Server returned bad Status");
+          reject("Server returned Bad Status");
         }
       })
       .catch((error) => {

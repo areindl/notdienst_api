@@ -1,32 +1,49 @@
 const crawler = require("./crawler.js");
 
 exports.handler = async (event) => {
-  const lat = event.queryStringParameters.name || 45;
-
   /// Crawling Target
   const url =
     "http://www.lak-bayern.notdienst-portal.de/blakportal/schnellsuche/ergebnis";
 
+  // URL PARAMS or Farchant
   let params = {
-    lat: 47.52838000000001,
-    lon: 11.1113161,
-    date: Date.now(),
-    location: "Farchant",
+    lat: event.queryStringParameters.lat || 47.52838000000001,
+    lon: event.queryStringParameters.lon || 11.1113161,
+    date: event.queryStringParameters.date || Date.now(),
   };
 
-  let result = {};
+  // CHECK VALIDITY OF TIMESTAMP
+  let validDate = new Date(params.date).getTime() > 0;
 
-  results = await crawler.getResults(url, params);
+  if (!validDate) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: "Please provide valid timestamp" }),
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+    };
+  }
+
+  let results = await crawler.getResults(url, params);
 
   if (results.length) {
     return {
       statusCode: 200,
       body: JSON.stringify(results),
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
     };
   } else {
     return {
       statusCode: 500,
-      body: JSON.stringify("Error while fetching data."),
+      body: JSON.stringify({
+        message: "Error while fetching data.",
+      }),
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
     };
   }
 };
