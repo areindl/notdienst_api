@@ -9,10 +9,11 @@ exports.handler = async (event) => {
   let params = {
     lat: event.queryStringParameters.lat || 47.52838000000001,
     lon: event.queryStringParameters.lon || 11.1113161,
-    date: event.queryStringParameters.date || Date.now(),
+    date: parseInt(event.queryStringParameters.date || Date.now()),
   };
 
   // CHECK VALIDITY OF TIMESTAMP
+
   let validDate = new Date(params.date).getTime() > 0;
 
   if (!validDate) {

@@ -1,10 +1,12 @@
 # Apotheken Notdienst Crawler
 
-### A simple crawler in Node.js to build an API to get the current emergency pharmacies for a given location in Germany directly from [BLAK](http://www.lak-bayern.notdienst-portal.de/blakportal/). I needed that for a small website that I was building.
+### A simple crawler in Node.js to build an API to get the current emergency pharmacies for a given location in Germany directly from [BLAK](http://www.lak-bayern.notdienst-portal.de/blakportal/). I needed that quickly for a small project.
 
 ## Introduction
 
-This repository contains code for a web crawler that scrapes a website. The API can be pubslished using a Serverless function at hosters like [Netlify](https://netlify.com).
+This repository contains code for a web crawler that scrapes a website. The API can be pubslished using a serverless lambda functions at hosters like [Netlify](https://netlify.com).
+
+Comes with absolutely no warranty, API is subject to change and it needs refactoring / sanity measures. Use on your own risk.
 
 ## Installation
 
@@ -14,12 +16,25 @@ Install dependencies: `npm install`
 
 Navigate into the src directory and run the main thread: `node index.js`
 
-This project was built with the following:
+This project was built with the following tools:
 
 - Node: A JavaScript runtime built on Chrome's V8 JavaScript engine.
 - Axios: A promised based HTTP client for the browser and Node.js.
 - Cheerio: A lightweight implementation of jQuery which provided access to the DOM on the server.
-- Netlify Functions for Serverless Deployment
+
+## Demo
+
+I deployed the API using [Netlify](https://docs.netlify.com/functions/build-with-javascript/#format)'s serverless functions:
+
+- https://romantic-aryabhata-6b2071.netlify.app/.netlify/functions/server
+
+- Query Parameters:
+
+  - `lat` | Latitude
+  - `lon` | Longitude
+  - `date` | UNIX Timestamop
+
+- Example for Munich on 05.05.2020: https://romantic-aryabhata-6b2071.netlify.app/.netlify/functions/server?lat=48.135124&lon=11.581981&date=1588702203721
 
 ## License
 
