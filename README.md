@@ -26,7 +26,7 @@ This project was built with the following tools:
 
 I deployed the API using [Netlify](https://docs.netlify.com/functions/build-with-javascript/#format)'s serverless functions:
 
-- https://romantic-aryabhata-6b2071.netlify.app/.netlify/functions/server
+- https://apotheken-notdienst-api.netlify.app/.netlify/functions/server
 
 - Query Parameters:
 
@@ -34,7 +34,7 @@ I deployed the API using [Netlify](https://docs.netlify.com/functions/build-with
   - `lon` | Longitude
   - `date` | UNIX Timestamop
 
-- Example for Munich on 05.05.2020: https://romantic-aryabhata-6b2071.netlify.app/.netlify/functions/server?lat=48.135124&lon=11.581981&date=1588702203721
+- Example for Munich on 05.05.2020: https://apotheken-notdienst-api.netlify.app/.netlify/functions/server?lat=48.135124&lon=11.581981&date=1588702203721
 
 ## License
 
