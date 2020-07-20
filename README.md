@@ -24,6 +24,8 @@ This project was built with the following tools:
 
 ## Demo
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/da8504ad-186a-4f5c-87fb-0157eb027a0b/deploy-status)](https://app.netlify.com/sites/apotheken-notdienst-api/deploys)
+
 I deployed the API using [Netlify](https://docs.netlify.com/functions/build-with-javascript/#format)'s serverless functions:
 
 - https://apotheken-notdienst-api.netlify.app/.netlify/functions/server
