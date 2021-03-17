@@ -14,8 +14,6 @@ Clone the repository
 
 Install dependencies: `npm install`
 
-Navigate into the src directory and run the main thread: `node index.js`
-
 This project was built with the following tools:
 
 - Node: A JavaScript runtime built on Chrome's V8 JavaScript engine.
@@ -34,7 +32,7 @@ I deployed the API using [Netlify](https://docs.netlify.com/functions/build-with
 
   - `lat` | Latitude
   - `lon` | Longitude
-  - `date` | UNIX Timestamop
+  - `date` | UNIX Timestamp
 
 - Example for Munich on 05.05.2020: https://apotheken-notdienst-api.netlify.app/.netlify/functions/server?lat=48.135124&lon=11.581981&date=1588702203721
 
