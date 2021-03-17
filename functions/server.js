@@ -1,20 +1,22 @@
-const crawler = require("./crawler.js");
+const dotenv = require("dotenv").config()
+const crawler = require("./crawler.js")
 
 exports.handler = async (event) => {
   /// Crawling Target
   const url =
-    "http://www.lak-bayern.notdienst-portal.de/blakportal/schnellsuche/ergebnis";
+    process.env.API_URL ||
+    "http://www.lak-bayern.notdienst-portal.de/blakportal/schnellsuche/ergebnis"
 
-  // URL PARAMS or Farchant
+  // URL PARAMS for Farchant
   let params = {
     lat: event.queryStringParameters.lat || 47.52838000000001,
     lon: event.queryStringParameters.lon || 11.1113161,
     date: parseInt(event.queryStringParameters.date || Date.now()),
-  };
+  }
 
   // CHECK VALIDITY OF TIMESTAMP
 
-  let validDate = new Date(params.date).getTime() > 0;
+  let validDate = new Date(params.date).getTime() > 0
 
   if (!validDate) {
     return {
@@ -23,10 +25,10 @@ exports.handler = async (event) => {
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
       },
-    };
+    }
   }
 
-  let results = await crawler.getResults(url, params);
+  let results = await crawler.getResults(url, params)
 
   if (results.length) {
     return {
@@ -35,7 +37,7 @@ exports.handler = async (event) => {
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
       },
-    };
+    }
   } else {
     return {
       statusCode: 500,
@@ -45,6 +47,6 @@ exports.handler = async (event) => {
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
       },
-    };
+    }
   }
-};
+}
