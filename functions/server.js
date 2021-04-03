@@ -2,6 +2,14 @@ const dotenv = require("dotenv").config()
 const crawler = require("./crawler.js")
 
 exports.handler = async (event) => {
+  // CORS
+
+  const cors = {
+    "Content-Type": "application/json;charset=UTF-8",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+  }
+
   /// Crawling Target
   const url =
     process.env.API_URL ||
@@ -23,9 +31,7 @@ exports.handler = async (event) => {
       statusCode: 500,
       body: JSON.stringify({ message: "Please provide valid timestamp" }),
       headers: {
-        "Content-Type": "application/json;charset=UTF-8",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
+        ...cors,
         "Access-Control-Allow-Methods": "GET",
       },
     }
@@ -38,6 +44,7 @@ exports.handler = async (event) => {
       statusCode: 200,
       body: JSON.stringify(results),
       headers: {
+        ...cors,
         "Content-Type": "application/json;charset=UTF-8",
       },
     }
@@ -48,6 +55,7 @@ exports.handler = async (event) => {
         message: "Error while fetching data.",
       }),
       headers: {
+        ...cors,
         "Content-Type": "application/json;charset=UTF-8",
       },
     }
