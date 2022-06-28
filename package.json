@@ -1,6 +1,6 @@
 {
   "name": "notdienst_api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "an API to get the current BLAK assigned pharmacy for a given location",
   "main": "index.js",
   "scripts": {
