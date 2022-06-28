@@ -11,9 +11,7 @@ exports.handler = async (event) => {
   }
 
   /// Crawling Target
-  const url =
-    process.env.API_URL ||
-    "http://www.lak-bayern.notdienst-portal.de/blakportal/schnellsuche/ergebnis"
+  const url = process.env.API_URL || "https://www.lak-bayern.notdienst-portal.de/blakportal/schnellsuche/ergebnis"
 
   // URL PARAMS for Farchant
   let params = {
