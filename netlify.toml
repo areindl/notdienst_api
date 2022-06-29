@@ -1,10 +1,11 @@
 [build]
   functions = "./functions"
 
-  [[headers]]
+[dev]
+  functions = "./functions"
+
+
+[[headers]]
   for = "/*"
   [headers.values]
     Access-Control-Allow-Origin = "https://alpspitz-apotheke.de"
-
-[dev]
-  functions = "./functions"
