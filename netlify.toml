@@ -1,11 +1,7 @@
 [build]
-  functions = "./functions"
+	command = "# no build command"
+	functions = "netlify/functions"
+	publish = "public"
 
-[dev]
-  functions = "./functions"
-
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "https://alpspitz-apotheke.de"
+[functions]
+        node_bundler = "esbuild"
