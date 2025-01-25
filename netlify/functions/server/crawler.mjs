@@ -1,17 +1,19 @@
 "use strict"
 
-const axios = require("axios")
-const cheerio = require("cheerio")
+import axios from "axios"
+import * as cheerio from "cheerio"
 
 //// DATA PARSING
 
-const getResults = (url, params) => {
+export const getResults = (url, params) => {
   // THE RETURN OBJECT
   let results = []
   let promise = new Promise(function (resolve, reject) {
     // Fetch Data
     fetchData(url, params)
       .then((res) => {
+        console.log("Status Code: ", res.status)
+
         if (res.status === 200) {
           console.log("Starting to Parse...")
           const html = res.data
@@ -43,7 +45,7 @@ const getResults = (url, params) => {
 }
 
 // CRAWLER
-async function fetchData(url, params) {
+export async function fetchData(url, params) {
   console.log("Crawling data...")
   // make http call to url
   let response = await axios({
@@ -63,6 +65,3 @@ async function fetchData(url, params) {
 
   return response
 }
-
-/** EXPORTS **/
-module.exports = { getResults }

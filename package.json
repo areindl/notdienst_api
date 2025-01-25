@@ -3,6 +3,7 @@
   "version": "1.0.5",
   "description": "an API to get the current BLAK assigned pharmacy for a given location",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "",
     "start": "",
